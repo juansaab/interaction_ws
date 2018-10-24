@@ -2,16 +2,17 @@
 
 ## Propósito
 
-Estudiar las tres tareas universales de interacción.
+Estudiar las tres tareas universales de interacción en entornos virtuales.
 
 ## Tareas
 
-Escoja una de las siguientes dos:
+Escoja una de las siguientes tres:
 
-1. Implemente una aplicación de _cámara en tercera persona_.
-2. Implemente una aplicación de _control de la aplicación_.
+1. Emplee un [dispositivo de interfaz humana](https://en.wikipedia.org/wiki/Human_interface_device) no convencional para controlar una escena. Refiérase al ejemplo [SpaceNavigator](). Se puede emplear la escena del [punto 2 del taller de transformaciones](https://github.com/VisualComputing/Transformations_ws)
+2. Implemente una aplicación de _cámara en tercera persona_. Refiérase al ejemplo [FlockOfBoids]().
+3. Implemente una aplicación de _control de la aplicación_.
 
-En ambos casos se puede emplear la librería [frames](https://github.com/VisualComputing/frames).
+En cualquier caso se puede emplear la librería [frames](https://github.com/VisualComputing/frames).
 
 ## Integrantes
 
