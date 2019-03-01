@@ -31,4 +31,4 @@ Complete la tabla:
 
 ## Entrega
 
-Fecha límite Domingo 3/3/19 a las 24h.
+Fecha límite Domingo 10/3/19 a las 24h.
