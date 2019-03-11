@@ -29,7 +29,7 @@ Complete la tabla:
 
 Se realizó la propuesta número 1. Controlar una escena usando un HID no convencional.
 
-Para la realización de este taller se tuvo en cuenta un modelo de interacción con un ojo observador de escena. El sistema de coordenadas del ojo se traslada para transmitir la sensación de control de la aplicación. La aplicación fue desarrollada utilizando P5.js
+Para la realización de este taller se tuvo en cuenta un modelo de interacción con un ojo observador de escena. El sistema de coordenadas del ojo se traslada para transmitir la sensación de control de la aplicación. La aplicación fue desarrollada utilizando P5.js y como sistema de interfaz humana se empleó la cámara, con un algoritmo de detección de emociones desarrollado por @auduno [clmtrackr](https://github.com/auduno/clmtrackr).
 
 El desarrollo del taller incluyó las siguientes etapas:
 
