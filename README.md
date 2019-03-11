@@ -22,12 +22,31 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+|  Juan David Saab          |   juansaab          |
 
 
 ## Informe
 
-(elabore en este sección un informe del ejercicio realizado)
+Se realizó la propuesta número 1. Controlar una escena usando un HID no convencional.
+
+Para la realización de este taller se tuvo en cuenta un modelo de interacción con un ojo observador de escena. El sistema de coordenadas del ojo se traslada para transmitir la sensación de control de la aplicación. La aplicación fue desarrollada utilizando P5.js
+
+El desarrollo del taller incluyó las siguientes etapas:
+
+1. Definición de una escena sencilla compuesta por dos cajas con textura, ubicadas en un espacio tridimensional.
+2. Definición de un objeto "eye" (cámara), haciendo uso de la librería p5EasyCam.
+3. Definición de funciones de interacción para realizar movimientos a la cámara bajo dos acciones específicas.
+4. Modificación de librería de detección de emociones con webcam, para usarla como interfaz de control de la aplicación.
+
+Para ejecutar el programa, es necesario correr un servidor local.
+
+Esto puede realizarse con la librería SimpleHTTPServer de Python
+```python -m SimpleHTTPServer 8000```
+
+Un ejemplo del código corriendo se puede apreciar en el siguiente GIF.
+
+![](interaction.gif)
+
 
 ## Entrega
 

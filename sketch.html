@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.js"></script>
+  <script src="https://rawgit.com/diwi/p5.EasyCam/master/p5.easycam.min.js"></script>
+</head>
+
+<body>
+  <div id="sketch-holder">
+    <!-- Our sketch will go here! -->
+  </div>
+</body>
+<script>
+  var easycam;
+  var sadImg;
+  var happyImg;
+  var rotationHappy;
+  var rotationSad;
+  var camState; // Cam state: normal, happy, sad
+  var camPosition;
+  var rotationStep;
+  setup = function () {
+    var canvas = createCanvas(700, 700, WEBGL);
+    sadImg = loadImage('assets/sad.png');
+    happyImg = loadImage('assets/happy.png');
+
+    rotationHappy = PI / 2;
+    rotationSad = -PI / 2;
+    camState = 'normal';
+    camPosition = 0;
+    rotationStep = 0.05;
+
+    canvas.parent('sketch-holder');
+    easycam = createEasyCam();
+  }
+  draw = function () {
+    background(0);
+    push();
+    texture(happyImg);
+    translate(100, 0, 0);
+    rotateY(PI)
+    box(50);
+    pop();
+    push();
+    texture(sadImg);
+    translate(-100, 0, 0);
+    box(50);
+    pop();
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.beHappy();
+    } else if (keyIsDown(LEFT_ARROW)) {
+      this.beSad();
+    } else if (keyIsDown(UP_ARROW)) {
+      this.beNormal();
+    }
+  }
+  beNormal = function () {
+    this.camPosition = 0;
+    this.easycam.setRotation([1, 0, 0, 0], 500);
+  }
+  beHappy = function () {
+    if (this.camPosition < this.rotationHappy) {
+      this.camPosition += rotationStep;
+      this.easycam.rotateY(rotationStep);
+    }
+  }
+  beSad = function () {
+    if (this.camPosition > this.rotationSad) {
+      this.camPosition -= rotationStep;
+      this.easycam.rotateY(-rotationStep);
+    }
+  }
+
+</script>
+
+</html>
