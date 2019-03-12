@@ -9,6 +9,7 @@
   <div id="sketch-holder">
     <!-- Our sketch will go here! -->
   </div>
+  <div if="top"></div>
 </body>
 <script>
   var easycam;
@@ -32,6 +33,7 @@
 
     canvas.parent('sketch-holder');
     easycam = createEasyCam();
+    topView = createGraphics(150, 150);
   }
   draw = function () {
     background(0);
@@ -70,6 +72,24 @@
       this.easycam.rotateY(-rotationStep);
     }
   }
+
+  var s = function (sketch) {
+
+      var x = 100;
+      var y = 100;
+
+      sketch.setup = function () {
+        sketch.createCanvas(200, 200);
+      };
+
+      sketch.draw = function () {
+        sketch.background(255);
+        sketch.fill(0);
+        sketch.rect(x, y, 50, 50);
+      };
+    };
+
+    var myp5 = new p5(s, 'top');
 
 </script>
 

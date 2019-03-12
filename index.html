@@ -160,8 +160,11 @@
 					<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 				</div>
 			</div>
-			<div id="sketch-holder">
-				<!-- Our sketch will go here! -->
+			<div id="sketch">
+				<div id="sketch-holder">
+					<!-- Our sketch will go here! -->
+				</div>
+				<div id="top"></div>
 			</div>
 			<script>
 				var command = 'normal';
@@ -387,7 +390,7 @@
 						rotationSad = -PI / 2;
 						camState = 'normal';
 						camPosition = 0;
-						rotationStep = 0.05;
+						rotationStep = 0.02;
 
 						canvas.parent('sketch-holder');
 						easycam = createEasyCam();
@@ -429,6 +432,60 @@
 							this.easycam.rotateY(-rotationStep);
 						}
 					}
+
+					var s = function (sketch) {
+						sketch.setup = function () {
+							sketch.createCanvas(200, 200);
+							sadImg = loadImage('assets/sad.png');
+							happyImg = loadImage('assets/happy.png');
+							rotationHappy = PI / 2;
+							rotationSad = -PI / 2;
+							camPosition = 0;
+							rotationStep = 0.02;
+							
+						}
+						sketch.draw = function () {
+							sketch.background(0);
+							sketch.fill(0);
+							//sketch.rotate(frameCount * 0.1);
+							push();
+							sketch.translate(100,100)
+							if (keyIsDown(RIGHT_ARROW)) {
+								sketch.beHappy();
+							} else if (keyIsDown(LEFT_ARROW)) {
+								sketch.beSad();
+							}
+							if (window.command === 'happy') {
+								this.beHappy();
+							} else if (window.command === 'sad') {
+								this.beSad();
+							}
+							sketch.rotate(camPosition);
+							sketch.image(happyImg, 20, -10, 20, 20);
+							sketch.image(sadImg, -40, -10, 20, 20);
+							pop();
+							push();
+							sketch.translate(100, 100)
+							sketch.fill(33, 200, 33)
+							sketch.noStroke()
+							sketch.triangle(-10, 80, 10, 80, 0, 100)
+							pop();
+						}
+						sketch.beHappy = function () {
+							console.log(camPosition)
+							if (camPosition < rotationHappy) {
+								camPosition += rotationStep;
+							}
+						}
+						sketch.beSad = function () {
+							console.log(camPosition)
+							if (camPosition > rotationSad) {
+								camPosition -= rotationStep;
+							}
+						}
+					}
+					
+					var myp5 = new p5(s, 'top');
 
 			</script>
 		</div>
